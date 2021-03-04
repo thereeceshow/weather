@@ -65,6 +65,8 @@ function getWeatherAuto() {
         .catch(error => {
             console.log('Error:', error);
             errorText = error.message
+            alertZip.classList.remove('d-none')
+            alertText.innerHTML = `There seems to be an issue: ${errorText}`
         });
 }
 
