@@ -5,6 +5,8 @@ const tempF = document.getElementById('far');
 const tempC = document.getElementById('cels');
 const cond = document.getElementById('cond');
 const pic = document.getElementById('pic');
+const alertZip = document.getElementById('alert');
+const alertText = document.getElementById('alertText');
 
 const sendZipCode = document.getElementById('zipCode');
 const locationData = document.getElementById('locationData');
@@ -12,6 +14,7 @@ let API_key = '09c2aba1639261fe64168ee459ea3ae5';
 let zip = '';
 let country = '';
 let weatherInfo = [];
+let errorText = '';
 let auto = [];
 let lat;
 let lon;
@@ -41,14 +44,18 @@ function getWeather() {
             display()
         })
         .catch(error => {
-            console.error('Error:', error);
+            console.log('Error:', error);
+            errorText = error.message
+            alertZip.classList.remove('d-none')
+            alertText.innerHTML = `There seems to be an issue: ${errorText}`
+            
+
         });
 }
 
 function getWeatherAuto() {
-    //zip = document.getElementById('zipCodeField').value;
-    let apiUrl = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_key}`
-    fetch(apiUrl)
+    let apiUrlA = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_key}`
+    fetch(apiUrlA)
         .then(response => response.json())
         .then(data => {
             console.log(data)
@@ -56,7 +63,8 @@ function getWeatherAuto() {
             display()
         })
         .catch(error => {
-            console.error('Error:', error);
+            console.log('Error:', error);
+            errorText = error.message
         });
 }
 
@@ -69,4 +77,5 @@ function display() {
     tempC.innerHTML = Math.round(tempInK - 273.15) + ' C';
     cond.innerHTML = 'Currently ' + weatherInfo.weather[0].main + '<br><em> with ' + weatherInfo.weather[0].description + ' in the area.</em>';
     pic.src = 'http://openweathermap.org/img/wn/' + icon + '@4x.png';
+    alertZip.classList.add('d-none');
 }
