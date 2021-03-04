@@ -12,19 +12,42 @@ let API_key = '09c2aba1639261fe64168ee459ea3ae5';
 let zip = '';
 let country = '';
 let weatherInfo = [];
+let auto = [];
+let lat;
+let lon;
 
-//locationData.onclick = navigator.geolocation.getCurrentPosition(success);
+locationData.onclick = navigator.geolocation.getCurrentPosition(success);
 //locationData.onclick = navigator.geolocation.getCurrentPosition(success, error, options);
 sendZipCode.addEventListener('click',getWeather);
 
 function success(event) {
     console.log(event);
+    auto = event;
+    lat = auto.coords.latitude
+    lon = auto.coords.longitude
+    getWeatherAuto();
+
 
 }
 
 function getWeather() {
     zip = document.getElementById('zipCodeField').value;
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?zip=${zip},${country}&appid=${API_key}`
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+            weatherInfo = data
+            display()
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+}
+
+function getWeatherAuto() {
+    //zip = document.getElementById('zipCodeField').value;
+    let apiUrl = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_key}`
     fetch(apiUrl)
         .then(response => response.json())
         .then(data => {
