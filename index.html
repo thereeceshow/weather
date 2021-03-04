@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://kit.fontawesome.com/3052edd555.js" crossorigin="anonymous"></script>
+    <title>Weather.Now</title>
+</head>
+<body>
+    <div class="container h-100" id="mainDiv">
+        <div class="row">
+            <div class="col text-center d-flex flex-column align-items-center">
+                <h1>Weather.Now</h1>
+                <hr width="40%">
+                <h5><em>formally known as Window, until Mr. Gates sued us</em></h5>
+
+                <div class="mt-5">
+                <div class="input-group mb-3">
+                    <label for="zipCodeField"></label>
+                    <input type="text" class="form-control" placeholder="Zip Code" aria-label="Location" aria-describedby="zipCode" id="zipCodeField">
+                    <button class="btn btn-outline-secondary" type="button" id="locationData" name="zip"><i class="fas fa-location-arrow"></i></button>
+                </div>
+                <button type="button" class="btn btn-success" id="zipCode">Get Weather</button>
+                </div>
+
+                <div class="card mt-3" style="width: 18rem;">
+                    <div class="card-header bg-warning">
+                      City
+                    </div>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item" id="city">Lexington</li>
+                    </ul>
+                  </div>
+
+                  <div class="card mt-3" style="width: 18rem;">
+                    <div class="card-header bg-warning">
+                      Temperature
+                    </div>
+                    <ul class="list-group list-group-horizontal">
+                      <li class="list-group-item flex-fill" id="kel">332 K</li>
+                      <li class="list-group-item flex-fill" id ="far">32 F</li>
+                      <li class="list-group-item flex-fill" id ="cels">0 C</li>
+                    </ul>
+                  </div>
+
+                  <div class="card mt-3" style="width: 18rem;">
+                    <div class="card-header bg-warning">
+                      Condition
+                    </div>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item" id="cond">Light Rain</li>
+                    </ul>
+                  </div>
+
+                  <div class="card mt-3" style="width: 18rem;">
+                    <div class="card-header bg-warning" id=>
+                      Other Info
+                    </div>
+                    <img class="card-img-bottom" src="..." alt="Current Weather Img" id="pic">
+                  </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+    <script src="./js/main.js"></script>
+</body>
+</html>
