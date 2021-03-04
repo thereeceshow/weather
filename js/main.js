@@ -45,5 +45,5 @@ function display() {
     tempF.innerHTML = Math.round(tempInK - 273.15) * 9/5 + 32 + ' F';
     tempC.innerHTML = Math.round(tempInK - 273.15) + ' C';
     cond.innerHTML = 'Currently ' + weatherInfo.weather[0].main + '<br><em> with ' + weatherInfo.weather[0].description + ' in the area.</em>';
-    pic.src = 'http://openweathermap.org/img/wn/' + icon + '@2x.png';
+    pic.src = 'http://openweathermap.org/img/wn/' + icon + '@4x.png';
 }
