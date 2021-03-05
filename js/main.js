@@ -78,9 +78,9 @@ function display() {
     city.innerHTML = weatherInfo.name;
     let tempInK = weatherInfo.main.temp;
     let icon = weatherInfo.weather[0].icon;
-    tempKel.innerHTML = (tempInK + ' K');
-    tempF.innerHTML = Math.round(tempInK - 273.15) * 9/5 + 32 + ' F';
-    tempC.innerHTML = Math.round(tempInK - 273.15) + ' C';
+    tempKel.innerHTML = (tempInK + '&deg K');
+    tempF.innerHTML = Math.round(tempInK - 273.15) * 9/5 + 32 + '&deg F';
+    tempC.innerHTML = Math.round(tempInK - 273.15) + '&deg C';
     cond.innerHTML = 'Currently ' + weatherInfo.weather[0].main + '<br><em> with ' + weatherInfo.weather[0].description + ' in the area.</em>';
     pic.src = 'https://openweathermap.org/img/wn/' + icon + '@4x.png';
     alertZip.classList.add('d-none');
