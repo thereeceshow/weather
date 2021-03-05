@@ -30,11 +30,16 @@
             <label for="zipCodeField"></label>
             <input type="text" class="form-control" placeholder="Zip Code" aria-label="Location"
               aria-describedby="zipCode" id="zipCodeField">
-            <button class="btn btn-outline-primary" type="button" id="locationData" name="zip"><i
+            <button class="btn btn-outline-primary type="button" id="locationData" name="zip"><i
                 class="fas fa-location-arrow"></i></button>
+            <button class="btn btn-primary d-none" id="spin" type="button" disabled>
+                  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                  <span class="visually-hidden">Loading...</span>
+                </button>
           </div>
           <button type="button" class="btn btn-success" id="zipCode">Get Weather</button>
         </div>
+        <div class="d-none" id="infoLoad">
         <div class="card mt-3" style="width: 18rem;">
           <div class="card-header bg-warning">
             City
@@ -69,6 +74,7 @@
             Other Info
           </div>
           <img class="card-img-bottom" src="" alt="Current Weather Img" id="pic">
+        </div>
         </div>
 
       </div>
