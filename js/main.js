@@ -58,7 +58,7 @@ function getWeather() {
 }
 
 function getWeatherAuto() {
-    let apiUrlA = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_key}`
+    let apiUrlA = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_key}`
     fetch(apiUrlA)
         .then(response => response.json())
         .then(data => {
