@@ -7,6 +7,8 @@ const cond = document.getElementById('cond');
 const pic = document.getElementById('pic');
 const alertZip = document.getElementById('alert');
 const alertText = document.getElementById('alertText');
+const spin = document.getElementById('spin');
+const infoLoad = document.getElementById('infoLoad');
 
 const sendZipCode = document.getElementById('zipCode');
 const locationData = document.getElementById('locationData');
@@ -34,10 +36,14 @@ function success(event) {
 }
 
 function getCurrentLocationData() {
+    infoLoad.classList.add('d-none');
+    locationData.classList.add('d-none');
+    spin.classList.remove('d-none');
     navigator.geolocation.getCurrentPosition(success);
 }
 
 function getWeather() {
+    infoLoad.classList.add('d-none');
     zip = document.getElementById('zipCodeField').value;
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?zip=${zip},${country}&appid=${API_key}`
     fetch(apiUrl)
@@ -64,6 +70,8 @@ function getWeatherAuto() {
         .then(data => {
             console.log(data)
             weatherInfo = data
+            spin.classList.add('d-none')
+            locationData.classList.remove('d-none');
             display()
         })
         .catch(error => {
@@ -84,4 +92,5 @@ function display() {
     cond.innerHTML = 'Currently ' + weatherInfo.weather[0].main + '<br><em> with ' + weatherInfo.weather[0].description + ' in the area.</em>';
     pic.src = 'https://openweathermap.org/img/wn/' + icon + '@4x.png';
     alertZip.classList.add('d-none');
+    infoLoad.classList.remove('d-none');
 }
