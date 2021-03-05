@@ -19,7 +19,7 @@ let auto = [];
 let lat;
 let lon;
 
-locationData.onclick = navigator.geolocation.getCurrentPosition(success);
+locationData.onclick = getCurrentLocationData;
 //locationData.onclick = navigator.geolocation.getCurrentPosition(success, error, options);
 sendZipCode.addEventListener('click',getWeather);
 
@@ -31,6 +31,10 @@ function success(event) {
     getWeatherAuto();
 
 
+}
+
+function getCurrentLocationData() {
+    navigator.geolocation.getCurrentPosition(success);
 }
 
 function getWeather() {
